@@ -14,7 +14,6 @@ class PostController extends Controller
     }
     
     public function show(Post $post)
-    {
         return view('posts/show')->with(['post' => $post]);
     }
     
@@ -27,5 +26,6 @@ class PostController extends Controller
         $input = $request['post'];
         $post->fill($input)->save();
         return redirect('/posts/' . $post->id);
+        return view ('posts/show')->with(['post' => $post]);
     }
 }
